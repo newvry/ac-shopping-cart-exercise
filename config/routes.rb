@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   resources :products
   resources :carts
+  resources :orders
 
-  namespace :admin do 
+  namespace :admin do
     resources :products
     resources :carts
+    resources :orders
   end
 
   root to: 'product#index'
