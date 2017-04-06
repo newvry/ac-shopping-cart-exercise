@@ -18,6 +18,6 @@ product_list = [
 product_list.each do |product|
   Product.create( :title => product["title"],
                   :price => product["price"],
-                  :description => product[:description],
+                  :description => product["description"],
                   :image => product["image"] )
 end
