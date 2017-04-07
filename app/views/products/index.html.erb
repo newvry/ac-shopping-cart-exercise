@@ -7,6 +7,8 @@
       <%= product.title%>
       <%= product.price%>
     <% end %>
+    <br>
+    <%= button_to 'buy', orders_path, params: {product_id: product.id}%>
   </div>
   <% end %>
 </div>
