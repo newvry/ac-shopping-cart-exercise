@@ -1,0 +1,10 @@
+<h1><%= @product.title %></h1>
+
+<%= image_tag(@product.image) %>
+
+上架時間: <%= @product.created_at %>
+
+<%= simple_format @product.description %>
+$<%= @product.price %>
+
+<%= link_to 'Back', products_path %>

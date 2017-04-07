@@ -1,0 +1,12 @@
+<h1>購物車</h1>
+<div class="container">
+  <% @products.each do |product|%>
+  <div class="item">
+    <%= link_to product_path(product) do %>
+      <%= image_tag product.image %><br>
+      <%= product.title%>
+      <%= product.price%>
+    <% end %>
+  </div>
+  <% end %>
+</div>
