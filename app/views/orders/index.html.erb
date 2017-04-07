@@ -1,0 +1,12 @@
+<h2>Cart</h2>
+<%= link_to 'Back', products_path %>
+<div class="container">
+  <ul>
+    <% @orders.each do |order|%>
+    <li>
+      <%= order.product.title%>
+      <%= order.product_amount %>
+    </li>
+    <% end %>
+  </ul>
+</div>
