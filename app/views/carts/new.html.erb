@@ -1,0 +1,28 @@
+<div class="form">
+<%= form_for @cart do |f| %>
+  <%= f.label :receiver, '收件者'%>
+  <%= f.text_field :receiver %>
+
+  <%= f.label :phone_number, '電話'%>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label :address, '地址'%>
+  <%= f.text_field :address %>
+
+  <%= f.label :payment, '付款方式' %>
+  <%= f.select :payment, [["信用卡", "credit_card"],["PayPal","paypal"],["ATM付款","atm"]]%>
+
+  <%= f.submit '送出訂單'%>
+<% end %>
+</div>
+<div class="product-content">
+  <table>
+  <% @cart.orders.each do |order| %>
+    <tr>
+      <td><%= order.product.title %></td>
+      <td><%= order.product.price %></td>   
+      <td><%= order.product_amount %></td> 
+    </tr>
+  <% end %>
+  </table>
+</div>
