@@ -16,7 +16,9 @@
       <td><%= p.title %></td>
       <td><%= p.price %></td>
       <td><%= p.description %></td>
-      <td><%= p.image %></td>
+      <% if p.image.url.present? %>
+      <td><%= image_tag p.image.url, width: 120 %></td>
+      <% end %>
       <td><%= link_to "Show", product_path(p), :class => "btn btn-info" %></td>
       <td><%= link_to "Edit", edit_admin_product_path(p), :class => "btn btn-primary" %></td>
       <td><%= link_to "Destroy", admin_product_path(p), method: :delete, :class => "btn btn-danger" %></td>
