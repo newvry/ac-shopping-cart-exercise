@@ -1,0 +1,37 @@
+<h2> User order list</h2>
+
+<table class="table">
+<%= link_to "Back", admin_carts_path, :class => "btn btn-default" %>
+  <thead>
+    <tr>
+      <th><h3>總金額</h3></th>
+      <th><h3>購買產品</h3></th>
+      <th><h3>產品數量</h3></th>
+      <!-- <th><h3>產品名稱</h3></th> -->
+      <th><h3>產品總數量</h3></th>
+      <th><h3>付款狀態</h3></th>
+      <th><h3>付款方式</h3></th>
+      <th><h3>訂單狀態</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @cart.total_price %></td>
+      <td>
+        <% @cart.products.each do |p| %>
+          <%= p.title %><br>
+        <% end %>
+      </td>
+      <td>
+        <% @cart.orders.each do |c| %>
+          <%= c.product_amount %><br>
+        <% end %>
+      </td>
+      <td><%= @cart.orders.map{ |order| order.product_amount }.sum %></td>
+      <td><%= @cart.money_status %></td>
+      <td><%= @cart.payment %></td>
+      <td><%= @cart.order_status %></td>
+      <td><td><%= link_to "刪除訂單", admin_cart_path(@cart), method: :delete, :class => "btn btn-danger" %></td></td>
+    </tr>
+  </tbody>
+</table>
