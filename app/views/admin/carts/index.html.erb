@@ -1,0 +1,27 @@
+<h1>Admin carts list</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><h3>使用者名稱</h3></th>
+      <th><h3>總金額</h3></th>
+      <th><h3>付款狀態</h3></th> <!-- 已付款、未付款 -->
+      <th><h3>付款方式</h3></th> <!-- 刷卡、匯款 -->
+      <th><h3>訂單狀態</h3></th> <!-- 新訂單、已出貨、已取消 -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td></td>
+        <td><%= cart.total_price %></td>
+        <td><%= cart.money_status %></td>
+        <td><%= cart.payment %></td>
+        <td><%= cart.order_status %></td>
+        <td><%= link_to "訂單明細", admin_cart_path(cart), :class => "btn btn-info" %></td>
+        <td><%= link_to "刪除訂單", admin_cart_path(cart), method: :delete, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
