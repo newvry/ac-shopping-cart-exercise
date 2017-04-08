@@ -7,7 +7,6 @@
       <th><h3>總金額</h3></th>
       <th><h3>購買產品</h3></th>
       <th><h3>產品數量</h3></th>
-      <!-- <th><h3>產品名稱</h3></th> -->
       <th><h3>產品總數量</h3></th>
       <th><h3>付款狀態</h3></th>
       <th><h3>付款方式</h3></th>
@@ -31,6 +30,7 @@
       <td><%= @cart.money_status %></td>
       <td><%= @cart.payment %></td>
       <td><%= @cart.order_status %></td>
+      <td><%= link_to "更改訂單", edit_admin_cart_path(@cart), :class => "btn btn-primary" %></td>
       <td><td><%= link_to "刪除訂單", admin_cart_path(@cart), method: :delete, :class => "btn btn-danger" %></td></td>
     </tr>
   </tbody>

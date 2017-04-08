@@ -1,0 +1,28 @@
+<h2>Update User order list</h2>
+
+<%= form_for @cart, url: admin_cart_path(@cart) do |c| %>
+
+  <%= c.label :total_price, '總金額' %>
+  <%= c.text_field :total_price %>
+
+  <%= c.label :receiver, '收件者' %>
+  <%= c.text_field :receiver %>
+
+  <%= c.label :phone_number, '電話'%>
+  <%= c.text_field :phone_number %>
+
+  <%= c.label :address, '地址'%>
+  <%= c.text_field :address %>
+
+  <%= c.label :order_status, '訂單狀態' %>
+  <%= c.select :order_status, [["新訂單", "new_order"], ["已出貨", "Shipped"], ["已取消", "Cancelled"]] %>
+
+  <%= c.label :money_status, '付款狀態' %>
+  <%= c.select :money_status, [["未付款", "unpaid"], ["已付款", "payment"]] %>
+
+  <%= c.label :payment, '付款方式' %>
+  <%= c.select :payment, [["信用卡", "credit_card"],["PayPal","paypal"],["ATM付款","atm"]]%>
+
+  <%= c.submit '修改訂單'%>
+
+<% end %>
