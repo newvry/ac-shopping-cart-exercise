@@ -1,5 +1,5 @@
 <div class="form">
-<%= form_for @cart do |f| %>
+<%= form_for @cart, url: { action: :create }, method: :post do |f| %>
   <%= f.label :receiver, '收件者'%>
   <%= f.text_field :receiver %>
 
