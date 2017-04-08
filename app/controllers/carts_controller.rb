@@ -9,6 +9,7 @@ class CartsController < ApplicationController
     current_cart.update(cart_params)
     current_cart.user = current_user
     if current_cart.save
+      UserMailer.cart_confirmed(current_cart).deliver_later!
       @cart = nil
       session[:cart_id] = nil
       redirect_to root_path

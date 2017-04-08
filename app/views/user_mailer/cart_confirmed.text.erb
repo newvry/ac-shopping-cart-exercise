@@ -1,0 +1,8 @@
+哈囉， <%= @cart.user.name %>
+
+消費明細：
+<% @cart.orders.each do |order| %> 
+  <%= order.product.title %> X <%= order.product_amount %>
+<% end %>
+
+訂單連結： <%= cart_url(@cart) %>
