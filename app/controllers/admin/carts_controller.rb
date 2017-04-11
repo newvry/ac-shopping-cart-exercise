@@ -15,6 +15,9 @@ class Admin::CartsController < ApplicationController
   def update
     @cart = Cart.find(params[:id])
     if @cart.update(cart_params)
+      if @cart.order_status == '已出貨'
+        UserMailer.shipped_notice(@cart).deliver_later!
+      end
       redirect_to admin_cart_path(@cart)
     else
       render :back

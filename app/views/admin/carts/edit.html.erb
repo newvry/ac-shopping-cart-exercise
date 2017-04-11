@@ -15,13 +15,13 @@
   <%= c.text_field :address %>
 
   <%= c.label :order_status, '訂單狀態' %>
-  <%= c.select :order_status, [["新訂單", "new_order"], ["已出貨", "Shipped"], ["已取消", "Cancelled"]] %>
+  <%= c.select :order_status, [["新訂單", "新訂單"], ["已出貨", "已出貨"], ["已取消", "已取消"]] %>
 
   <%= c.label :money_status, '付款狀態' %>
-  <%= c.select :money_status, [["未付款", "unpaid"], ["已付款", "payment"]] %>
+  <%= c.select :money_status, [["未付款", "未付款"], ["已付款", "已付款"]] %>
 
   <%= c.label :payment, '付款方式' %>
-  <%= c.select :payment, [["信用卡", "credit_card"],["PayPal","paypal"],["ATM付款","atm"]]%>
+  <%= c.select :payment, [["信用卡", "信用卡"],["PayPal","paypal"],["ATM付款","atm"]]%>
 
   <%= c.submit '修改訂單'%>
 
