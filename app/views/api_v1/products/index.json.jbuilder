@@ -1,0 +1,1 @@
+json.results @products, :id, :title, :description
