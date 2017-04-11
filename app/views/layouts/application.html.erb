@@ -9,15 +9,31 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-      <%= link_to('修改密碼', edit_registration_path(:user)) %>
-    <% else %>
-      <%= link_to('註冊', new_registration_path(:user)) %> |
-      <%= link_to('登入', new_session_path(:user)) %>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <div class="container">
+        <h1><%= link_to '購物網站', root_path %></h1>
+        <nav>
+          <div id="cart-link">
+          <%= link_to orders_path, class: 'user-log' do %>
+            購物車<span>(<%= current_cart.total_orders %>)</span>
+          <% end %>
+          </div>
+          <div id="user-nav">
+            <% if current_user %>
+              <%= link_to '登出', destroy_user_session_path, method: :delete, class: 'user-log' %> 
+              <%= link_to '修改密碼', edit_registration_path(:user), class: 'user-log' %>
+            <% else %>
+              <%= link_to '註冊', new_registration_path(:user), class: 'user-log' %> 
+              <%= link_to '登入', new_session_path(:user), class: 'user-log'  %>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section id="content-view">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </section>
   </body>
 </html>

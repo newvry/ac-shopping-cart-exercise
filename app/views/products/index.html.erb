@@ -1,17 +1,14 @@
-<h1>購物網站</h1>
-<div>
-  <%= link_to 'cart', orders_path %>
-</div>
 <div class="container">
   <% @products.each do |product|%>
   <div class="item">
     <%= link_to product_path(product) do %>
-      <%= image_tag product.image, width: 120 %><br>
-      <%= product.title%>
-      <%= product.price%>
+      <%= image_tag product.image, width: 120 %>
+      <div class="product-info">
+        <div class="product-title"><%= product.title %></div>
+        <div class="product-price">$<%= product.price %></div>
+      </div>
     <% end %>
-    <br>
-    <%= button_to 'buy', orders_path, params: {product_id: product.id}%>
+    <%= button_to '加入購物車', orders_path, params: {product_id: product.id}, class: "buy-btn" %>
   </div>
   <% end %>
 </div>

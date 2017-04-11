@@ -1,10 +1,15 @@
-<h1><%= @product.title %></h1>
-
-<%= image_tag(@product.image) %>
-
-上架時間: <%= @product.created_at %>
-
-<%= simple_format @product.description %>
-$<%= @product.price %>
-
-<%= link_to 'Back', products_path %>
+<div class="container">
+  <div class="image col-6">
+    <%= image_tag(@product.image) %>
+  </div>
+  <div class="product-detail col-6">
+    <h3><%= @product.title %></h1>
+    <p><%= simple_format @product.description %></p>
+    <p>上架時間: <%= @product.created_at %></p>
+    <div class="price">$<%= @product.price %></div>
+    <%= button_to '加入購物車', orders_path, params: {product_id: @product.id}, class: "buy-btn" %>
+  </div>
+  <div class="other">
+    <%= link_to '查看其他產品', products_path %>
+  </div>
+</div>

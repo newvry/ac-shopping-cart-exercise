@@ -1,3 +1,44 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.center {
+  text-align: center;
+}
+
+.order-list {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 10px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+}
+
+
+
+.check-btn {
+  display: inline-block;
+  width: 100px;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #FF4500;
+  color: #FFFFF0;
+}
+
+.continue-btn {
+  display: inline-block;
+  width: 100px;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #FF8C00;
+  color: #FFFFF0;
+}

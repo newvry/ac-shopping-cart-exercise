@@ -1,15 +1,19 @@
-<h2>Cart</h2>
-<%= link_to 'Back', products_path %>
 <div class="container">
-  <ul>
-    <% @orders.each do |order|%>
-    <li>
-      <%= order.product.title%>
-      <%= order.product_amount %>
-    </li>
-    <% end %>
-  </ul>
-  <div>
-    <%= link_to 'check to buy', new_cart_path %>
+  <div class="center">
+    <h3>購物車</h2>
+    <table class="order-list">
+      <tr>
+        <th>商品名稱</th>
+        <th>商品數量</th>
+      </tr>
+      <% @orders.each do |order|%>
+      <tr>
+        <td><%= order.product.title %></td>
+        <td><%= order.product_amount %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%= link_to '確認購買', new_cart_path, class: 'check-btn' %>
+    <%= link_to '繼續購物', products_path, class: 'continue-btn' %>
   </div>
 </div>

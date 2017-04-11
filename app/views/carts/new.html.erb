@@ -1,28 +1,42 @@
-<div class="form">
-<%= form_for @cart, url: { action: :create }, method: :post do |f| %>
-  <%= f.label :receiver, '收件者'%>
-  <%= f.text_field :receiver %>
-
-  <%= f.label :phone_number, '電話'%>
-  <%= f.text_field :phone_number %>
-
-  <%= f.label :address, '地址'%>
-  <%= f.text_field :address %>
-
-  <%= f.label :payment, '付款方式' %>
-  <%= f.select :payment, [["信用卡", "credit_card"],["PayPal","paypal"],["ATM付款","atm"]]%>
-
-  <%= f.submit '送出訂單'%>
-<% end %>
-</div>
-<div class="product-content">
-  <table>
-  <% @cart.orders.each do |order| %>
-    <tr>
-      <td><%= order.product.title %></td>
-      <td><%= order.product.price %></td>   
-      <td><%= order.product_amount %></td> 
-    </tr>
-  <% end %>
-  </table>
+<div class="container">
+  <div class="center">
+    <h3>購買明細</h3>
+    <table class="order-list">
+      <tr>
+        <td>商品名稱</td>
+        <td>商品價格</td>
+        <td>購買數量</td>
+      </tr>
+      <% @cart.orders.each do |order| %>
+      <tr>
+        <td><%= order.product.title %></td>
+        <td><%= order.product.price %></td>   
+        <td><%= order.product_amount %></td> 
+      </tr>
+      <% end %>
+    </table>
+    <div class="form">
+    <%= form_for @cart, url: { action: :create }, method: :post, class: 'form-horizontal' do |f| %>
+      <div class="form-group">
+        <%= f.label :receiver, '收件者'%>
+        <%= f.text_field :receiver %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone_number, '電話'%>
+        <%= f.text_field :phone_number %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address, '地址'%>
+        <%= f.text_field :address %>
+      </div>
+      <div class="form-group">
+        <%= f.label :payment, '付款方式' %>
+        <%= f.select :payment, [["信用卡", "credit_card"],["PayPal","paypal"],["ATM付款","atm"]]%>
+      </div>
+      <div class="form-group">
+        <%= f.submit '送出訂單'%>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
