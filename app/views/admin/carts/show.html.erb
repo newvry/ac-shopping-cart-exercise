@@ -35,3 +35,9 @@
     </tr>
   </tbody>
 </table>
+
+
+
+<% @cart.orders.each do |order| %> 
+  <%= order.product.title %> X <%= order.product_amount %>
+<% end %>

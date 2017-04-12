@@ -13,14 +13,13 @@ class Admin::CartsController < ApplicationController
   end
 
   def update
-    @cart = Cart.find(params[:id])
-    if @cart.update(cart_params)
-      if @cart.order_status == '已出貨'
-        UserMailer.shipped_notice(@cart).deliver_later!
-      end
+    @cart = Cart.includes(orders: :product).find(params[:id]) 
+
+    if @cart.update(cart_params) && @cart.order_status == Cart::ORDER_STATUS[:shipped]
+      UserMailer.shipped_notice(@cart).deliver_later!
       redirect_to admin_cart_path(@cart)
     else
-      render :back
+      return render :back
     end
   end
 
@@ -33,13 +32,15 @@ class Admin::CartsController < ApplicationController
   private
 
   def cart_params
-    params.require(:cart).permit(:total_price,
-                                 :payment,
-                                 :order_status,
-                                 :money_status,
-                                 :receiver,
-                                 :phone_number,
-                                 :address)
+    params.require(:cart).permit(
+      :total_price,
+      :payment,
+      :order_status,
+      :money_status,
+      :receiver,
+      :phone_number,
+      :address
+    )
   end
 
 end

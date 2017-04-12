@@ -15,7 +15,7 @@
         <nav>
           <div id="cart-link">
           <%= link_to orders_path, class: 'user-log' do %>
-            購物車<span>(<%= current_cart.total_orders %>)</span>
+            購物車<span>(<%= current_cart.total_order_amount %>)</span>
           <% end %>
           </div>
           <div id="user-nav">
