@@ -1,3 +1,4 @@
+`ssh-add`
 # config valid only for current version of Capistrano
 lock "3.8.0"
 
@@ -31,3 +32,5 @@ set :repo_url, "https://github.com/newvry/ac-shopping-cart-exercise.git"
 
 # Default value for keep_releases is 5
  set :keep_releases, 5
+
+ set :passenger_restart_with_touch, true
